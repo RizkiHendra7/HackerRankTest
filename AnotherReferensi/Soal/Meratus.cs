@@ -115,15 +115,15 @@ namespace AnotherReferensi.Soal
 
             foreach (var word in words)
             {
-                var distinctWords = string.Join(string.Empty, word.Select(x => x.ToString()).Distinct().ToList());
+                var tempWords = word.ToString();
                 foreach (var letter in letters)
                 {
-                    if (distinctWords.Contains(letter))
+                    if (tempWords.Contains(letter))
                     {
-                        distinctWords = distinctWords.Replace(letter, "");
+                        tempWords = tempWords.Replace(letter, "");
                     }
 
-                    if (string.IsNullOrEmpty(distinctWords))
+                    if (string.IsNullOrEmpty(tempWords))
                     {
                         result.Add(word);
                         break;

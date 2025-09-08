@@ -11,6 +11,7 @@ while (true)
     Console.WriteLine("3. [BSI] - Paliandrome");
     Console.WriteLine("4. [Meratus] - Find Word in letters");
     Console.WriteLine("5. [Meratus] - Jam Pasir");
+    Console.WriteLine("6. [Meratus] - flavor Wendy Doesnt Like");
     //Console.WriteLine("=== [MOST POPPULAR CHATGPT] ===");
     //Console.WriteLine("4. Palindrome String");
     //Console.WriteLine("5. Jumlah Digit");
@@ -39,6 +40,8 @@ while (true)
             Meratus.find_words_with_letters(); break;
         case "5":
             Meratus.jamPasir(); break;
+        case "6":
+            Meratus.flavorWendyDoesntLike(); break;
         case "0":
             return;
 

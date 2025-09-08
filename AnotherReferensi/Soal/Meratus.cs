@@ -134,5 +134,58 @@ namespace AnotherReferensi.Soal
             Console.WriteLine(string.Join(" ", result));
             Console.ReadLine();
         }
+
+        public static void flavorWendyDoesntLike()
+        {
+            /*
+             Wendy has 8 flavors of candy with an uneven amount, namely:
+            - Orange: 4
+            - Lemon: 3
+            - Mint: 1
+            - Chocolate: 4
+            - Coffee: 4
+            - Lime: 6
+            - Strawberry: 2
+            - Mango: 6
+                From the list above, there are some candy flavors that Wendy doesn't like. 
+                Wendy decided to give the candy flavor he didn't like to other people, 
+                and that flavor was the candy with the most amount. 
+            Please help Wendy determine how many flavors, what flavors it is, and the total of candy.
+            Input:
+            [4,3,1,4,4,6,2,6]
+            Output:
+            Total Disliked Flavors: 2
+            Disliked Flavors: Lime Mango
+            Sum of Disliked Candy: 12
+             */
+
+
+            var ltCandy = new List<string> { "Orange", "Lemon", "Mint", "Chocolate", "Coffee", "Lime", "Strawberry", "Mango" };
+            var input = new List<int>() { 4, 3, 1, 4, 4, 6, 2, 6 };
+            string dislikeFlavorsName = "";
+
+            //total dislike
+            int maxAmount = input.OrderByDescending(x => x).FirstOrDefault();
+            int totalDislike = input.Where(x => x == maxAmount).Count();
+            int sumDislike = 0;
+
+            //Dislike Flavors
+            for (var idx = 0; idx < input.Count(); idx++)
+            {
+                if (input[idx] == maxAmount)
+                {
+                    dislikeFlavorsName += " " + ltCandy[idx];
+                    sumDislike += input[idx];
+                }
+            }
+
+
+
+
+            Console.WriteLine("Total Disliked Flavors: " + totalDislike.ToString());
+            Console.WriteLine("Disliked Flavors:" + dislikeFlavorsName);
+            Console.WriteLine("Sum of Disliked Candy: " + sumDislike.ToString());
+        }
+
     }
 }

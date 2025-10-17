@@ -7,27 +7,14 @@ using System.Threading.Tasks;
 namespace AnotherReferensi.Soal
 {
     public class Meratus
-    { 
-
-        /* 
-               Jadi yg pertama itu lisan:
-               - Ada 2 jam pasir yang 1 10 detik yang 1 lagi 6 detik gmn caranya dia bisa ke 14 detik? (pikirin dlu logicnya kasih tau aku abis itu translate logicnya ke kodingan)
-               - ⁠def find_words_with_letters(words, letters):
-                   return {word for word in words if all(c in letters for c in word)}
-
-               # Example usage:
-               words1 = {"JAVA","POINT","QUIZ"}
-               letters1 = {"Q","P","I","V","Z","U"}
-               print(find_words_with_letters(words1, letters1))  # Output: {"QUIZ"}
-
-               words2 = {"JAVA","POINT","QUIZ"}
-               letters2 = {"N","A","J","T","Z","Q","O","P","I","V"}
-               print(find_words_with_letters(words2, letters2))  # Output: {"JAVA", "POINT"}
-
-            */
- 
+    {  
         public static void jamPasir()
-        {    
+        {
+            /*
+              Jadi yg pertama itu lisan:
+               - Ada 2 jam pasir yang 1 10 detik yang 1 lagi 6 detik gmn caranya dia bisa ke 14 detik? (pikirin dlu logicnya kasih tau aku abis itu translate logicnya ke kodingan)
+              
+             */
             Console.WriteLine("Opsi mana yang kamu pilih 1 / 2 ? : ");
             var param = Convert.ToInt32(Console.ReadLine()); 
 
@@ -105,7 +92,20 @@ namespace AnotherReferensi.Soal
 
         }
         public static void find_words_with_letters()
-        { 
+        {  
+            /*   ⁠def find_words_with_letters(words, letters):
+                   return {word for word in words if all(c in letters for c in word)}
+
+               # Example usage:
+               words1 = {"JAVA","POINT","QUIZ"}
+               letters1 = {"Q","P","I","V","Z","U"}
+               print(find_words_with_letters(words1, letters1))  # Output: {"QUIZ"}
+
+               words2 = {"JAVA","POINT","QUIZ"}
+               letters2 = {"N","A","J","T","Z","Q","O","P","I","V"}
+               print(find_words_with_letters(words2, letters2))  # Output: {"JAVA", "POINT"}
+
+            */
             var words = new HashSet<string> { "JAVA", "POINT", "QUIZ" };
             var letters = new HashSet<string> { "Q", "P", "I", "V", "Z", "U" }; 
             letters = new HashSet<string> { "N", "A", "J", "T", "Z", "Q", "O", "P", "I", "V" };
@@ -134,7 +134,6 @@ namespace AnotherReferensi.Soal
             Console.WriteLine(string.Join(" ", result));
             Console.ReadLine();
         }
-
         public static void flavorWendyDoesntLike()
         {
             /*
@@ -185,6 +184,59 @@ namespace AnotherReferensi.Soal
             Console.WriteLine("Total Disliked Flavors: " + totalDislike.ToString());
             Console.WriteLine("Disliked Flavors:" + dislikeFlavorsName);
             Console.WriteLine("Sum of Disliked Candy: " + sumDislike.ToString());
+        }
+        public static void ReverseStringElement()
+        {
+            #region SOAL
+            /*
+                Given a string which contains special characters (!,@,#,$,%,^,&,*,(,),+,=,:) and characters ('a' to 'z' , 'A' to 'Z'),
+                create a function to reverse string element order without affecting the special characters.
+                Notes: input doesn't contain numbers
+ 
+                Input:   str = "a!b#c"
+                Output:  str = "c!b#a"
+ 
+                Input:   str = "Ab+c:de()"
+                Output:  str = "ed+c:bA()"
+             */
+            #endregion
+             
+            Console.Write("INPUT : ");
+            string inputString =  Console.ReadLine();
+             
+            //Convert to list
+            List<string> listString = inputString.Select(x => x.ToString()).ToList();               //Convert to string biar mudah
+            List<string> reverseString = inputString.Reverse().Select(x => x.ToString()).ToList();  //Convert to string biar mudah
+
+            //Declare special char
+            List<string> specialChar = "!,@,#,$,%,^,&,*,(,),+,=,:".Split(",").ToList();
+            specialChar.Add(",");
+
+            string result = string.Empty;
+
+            for(var idx=0;idx< listString.Count;idx++)
+            { 
+                if (specialChar.Contains(listString[idx]))
+                {
+                    result += listString[idx];
+                }
+                else if (!specialChar.Contains(reverseString[idx]))
+                {
+                    result += reverseString[idx];
+                }
+                else
+                {
+                    for (var idxRev = 0; idxRev < reverseString.Count(); idxRev++)
+                    {
+                        if (specialChar.Contains(reverseString[idxRev])) continue;
+                        result += reverseString[idxRev];
+                        reverseString[idxRev] = "!"; //dirubah jadi special char biar gk ke tarik lagi 
+                        break;
+                    } 
+                }
+            } 
+
+            Console.Write("Result : " + result);
         }
 
     }

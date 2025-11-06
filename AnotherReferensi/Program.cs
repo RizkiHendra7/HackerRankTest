@@ -13,6 +13,7 @@ while (true)
     Console.WriteLine("5. [Meratus] - Jam Pasir");
     Console.WriteLine("6. [Meratus] - Flavor Wendy Doesnt Like");
     Console.WriteLine("7. [Meratus] - Reverse String Element");
+    Console.WriteLine("8. [IBM] - Get Session Count");
     //Console.WriteLine("=== [MOST POPPULAR CHATGPT] ===");
     //Console.WriteLine("4. Palindrome String");
     //Console.WriteLine("5. Jumlah Digit");
@@ -141,6 +142,21 @@ while (true)
              */
             #endregion
             Meratus.ReverseStringElement(); break;
+        case "8":
+            #region SOAL
+            /*
+                Given a string which contains special characters (!,@,#,$,%,^,&,*,(,),+,=,:) and characters ('a' to 'z' , 'A' to 'Z'),
+                create a function to reverse string element order without affecting the special characters.
+                Notes: input doesn't contain numbers
+ 
+                Input:   str = "a!b#c"
+                Output:  str = "c!b#a"
+ 
+                Input:   str = "Ab+c:de()"
+                Output:  str = "ed+c:bA()"
+             */
+            #endregion
+            IBM.soal1_GetSessionCount(); break;
         case "0":
             #region SOAL
 
